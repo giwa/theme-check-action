@@ -19,10 +19,10 @@ fi
 
 set -eou pipefail
 
-run theme-check --version
+theme-check --version
 
 if [[ -z "$INPUT_TOKEN" ]]; then
-  run theme-check $flags "$theme_root"
+  theme-check $flags "$theme_root"
   exit $?
 fi
 
@@ -32,8 +32,8 @@ theme-check $flags -o json "$theme_root" > /tmp/results.json
 code=$?
 
 if [[ -n $INPUT_BASE ]]; then
-  run git fetch origin $INPUT_BASE
-  run git diff --name-only --diff-filter=ACMRTUB origin/$INPUT_BASE > /tmp/diff.log
+  git fetch origin $INPUT_BASE
+  git diff --name-only --diff-filter=ACMRTUB origin/$INPUT_BASE > /tmp/diff.log
 fi
 
 set -e
