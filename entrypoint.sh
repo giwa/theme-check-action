@@ -28,6 +28,7 @@ fi
 
 set +e
 run theme-check $flags -o json "$theme_root" > /tmp/results.json
+theme-check $flags -o json "$theme_root" > /tmp/results.json
 code=$?
 
 if [[ -n $INPUT_BASE ]]; then
